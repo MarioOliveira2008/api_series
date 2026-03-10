@@ -1,2 +1,33 @@
-GET http://127.0.0.1:8000/soma?a=5&b=6 HTTP/1.1
+### Variaveis de ambiente
+@base_url = "http://127.0.0.1:8000
 
+### Teste de conexão com a API"
+
+GET {{base_url}}/ HTTP/1.1
+Accept: application/json
+
+### Criação de uma série
+POST {{base_url}}/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "titulo": "Breaking Bad",
+    "descricao": "Um professor de química do ensino médio se torna um fabricante de metanfetamina para garantir o futuro financeiro de sua família após ser diagnosticado com câncer.",
+    "ano_lancamento": 2008,
+}
+
+### Obtenção de todas as séries
+GET {{base_url}}/series HTTP/1.1
+Accept: application/json
+
+PUT {{base_url}}/atualizar_serie HTTP/1.1
+Accept: application/json
+
+{
+    "titulo": "Breaking Bad",
+    "descricao": "Um professor de química do ensino médio se torna um fabricante de metanfetamina para garantir o futuro financeiro de sua família após ser diagnosticado com câncer.",
+    "ano_lancamento": 2008,
+}
+
+DELETE {{base_url}}/apagar_tarefa HTTP/1.1
+Accept: application/json

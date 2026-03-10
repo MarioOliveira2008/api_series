@@ -10,3 +10,7 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "sqlalchemy>=2.0.48",
 ]
+
+[toll.fastapi]
+entry_point = "app.main:app"     
+# from app.main import app as app  

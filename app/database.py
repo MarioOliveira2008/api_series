@@ -2,9 +2,12 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, declarative_base
 from os import getenv
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 # SERVER_URL = f"mysql+pymysql://{getenv('DB_USER')}:{getenv('DB_PASSWORD')}@{getenv('DB_HOST')}"
 SERVER_URL = "mysql+pymysql://root:admin@localhost"

@@ -20,14 +20,17 @@ Content-Type: application/json
 GET {{base_url}}/series HTTP/1.1
 Accept: application/json
 
-PUT {{base_url}}/atualizar_serie HTTP/1.1
+### Obtenção de uma série específica
+PUT {{base_url}}/serie/1/update HTTP/1.1
 Accept: application/json
 
 {
     "titulo": "Breaking Bad",
-    "descricao": "Um professor de química do ensino médio se torna um fabricante de metanfetamina para garantir o futuro financeiro de sua família após ser diagnosticado com câncer.",
+    "descricao": "Um professor de química do ensino médio se torna um fabricante de
+     metanfetamina para garantir o futuro financeiro de sua família após ser diagnosticado com câncer.",
     "ano_lancamento": 2008,
 }
 
-DELETE {{base_url}}/apagar_serie HTTP/1.1
+### Atualização de uma série
+DELETE {{base_url}}/serie/1/delete HTTP/1.1
 Accept: application/json

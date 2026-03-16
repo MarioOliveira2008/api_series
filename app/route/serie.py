@@ -14,12 +14,12 @@ async def criar_serie(dados: SeriesSchema, db: Session = Depends(get_db)):
     db.refresh(nova_serie)
     return nova_serie
 
-@serie.get("/")
+@serie.get("/series")
 async def listar_series(db: Session = Depends(get_db)):
     return db.query(SerieModel).all()
 
 
-@serie.put("/")
+@serie.put("/serie/{id}/update")
 async def atualizar_serie(id: int, dados: SeriesSchema, db: Session = Depends(get_db)):
     serie = db.query(SerieModel).filter(SerieModel.id == id).first()
     
@@ -34,7 +34,7 @@ async def atualizar_serie(id: int, dados: SeriesSchema, db: Session = Depends(ge
     return serie
 
 
-@serie.delete("/")
+@serie.delete("/serie/{id}/delete")
 async def apagar_serie(id: int, db: Session = Depends(get_db)):
     serie = db.query(SerieModel).filter(SerieModel.id == id).first()
     if not serie:

@@ -11,6 +11,6 @@ dependencies = [
     "sqlalchemy>=2.0.48",
 ]
 
-[toll.fastapi]
+[tool.fastapi]
 entry_point = "app.main:app"     
 # from app.main import app as app  

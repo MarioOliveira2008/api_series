@@ -29,5 +29,5 @@ Accept: application/json
     "ano_lancamento": 2008,
 }
 
-DELETE {{base_url}}/apagar_tarefa HTTP/1.1
+DELETE {{base_url}}/apagar_serie HTTP/1.1
 Accept: application/json

@@ -18,9 +18,13 @@ async def criar_serie(dados: SeriesSchema, db: Session = Depends(get_db)):
 async def listar_series(db: Session = Depends(get_db)):
     return db.query(SerieModel).all()
 
+
 @serie.put("/")
 async def atualizar_serie(id: int, dados: SeriesSchema, db: Session = Depends(get_db)):
     serie = db.query(SerieModel).filter(SerieModel.id == id).first()
+    
+    if not serie:
+        raise HTTPException(status_code=404, detail="Serie não encontrada ")
     
     for campo, valor in dados.model_dump().items():
         setattr (serie, campo, valor)
@@ -29,10 +33,13 @@ async def atualizar_serie(id: int, dados: SeriesSchema, db: Session = Depends(ge
     db.refresh(serie)
     return serie
 
+
 @serie.delete("/")
 async def apagar_serie(id: int, db: Session = Depends(get_db)):
     serie = db.query(SerieModel).filter(SerieModel.id == id).first()
-
+    if not serie:
+        raise HTTPException(status_code=404, detail="Serie não encontrada ")
+    
     db.delete(serie)
     db.commit()
 
